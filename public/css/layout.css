@@ -145,7 +145,7 @@ body {
 }
 
 .hero__headline em {
-  font-style: normal;
+  font-style: italic;
   color: var(--color-accent);
 }
 
@@ -304,6 +304,14 @@ body {
   padding-left: var(--space-5);
   text-align: left;
   margin-top: var(--space-4);
+}
+
+.xray-explainer {
+  max-width: 600px;
+  margin: var(--space-3) auto 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
 }
 
 /* ── Reflection Section ───────────────────────────────────────── */

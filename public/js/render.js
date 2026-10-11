@@ -27,11 +27,7 @@ function el(tag, className, text) {
 function makeQuestionChip(question) {
   if (!question) return null;
   const chip = el('div', 'question-chip');
-  const icon = el('span', 'question-chip__icon');
-  icon.setAttribute('aria-hidden', 'true');
-  icon.textContent = '↳';
   const text = el('span', 'question-chip__text', question);
-  chip.appendChild(icon);
   chip.appendChild(text);
   return chip;
 }
@@ -101,7 +97,7 @@ function makePatternCard(pattern, index) {
 }
 
 /**
- * Build a full X-Ray panel with header and cards.
+ * Build a full reasoning review panel with header and cards.
  * @param {object} opts
  * @returns {HTMLElement}
  */
@@ -110,12 +106,8 @@ function makeXRayPanel({ panelClass, icon, title, items, makeCard, emptyText, st
 
   // Header
   const header = el('div', 'xray-panel__header');
-  const iconEl = el('span', 'xray-panel__icon');
-  iconEl.setAttribute('aria-hidden', 'true');
-  iconEl.textContent = icon;
   const titleEl = el('h2', 'xray-panel__title', title);
   const count = el('span', 'xray-panel__count', String(items.length));
-  header.appendChild(iconEl);
   header.appendChild(titleEl);
   header.appendChild(count);
   panel.appendChild(header);
@@ -141,7 +133,7 @@ function makeXRayPanel({ panelClass, icon, title, items, makeCard, emptyText, st
 // ─── Public Render Functions ──────────────────────────────────────────────────
 
 /**
- * Render the full Reasoning X-Ray section.
+ * Render the full reasoning review section.
  * @param {object} analysis - validated analysis object
  * @param {HTMLElement} container - target DOM element
  */
@@ -157,12 +149,12 @@ export function renderXRay(analysis, container) {
 
   const grid = el('div', 'xray-grid');
   grid.setAttribute('role', 'region');
-  grid.setAttribute('aria-label', 'Reasoning X-Ray Analysis');
+  grid.setAttribute('aria-label', 'Reasoning Review Analysis');
 
   // ── Row 1: Blind Spots + Assumptions ──
   grid.appendChild(makeXRayPanel({
     panelClass: 'xray-panel--blind-spot',
-    icon: '◎',
+    icon: '',
     title: 'Blind Spots',
     items: analysis.blind_spots,
     makeCard: makeFindingCard,
@@ -172,7 +164,7 @@ export function renderXRay(analysis, container) {
 
   grid.appendChild(makeXRayPanel({
     panelClass: 'xray-panel--assumption',
-    icon: '△',
+    icon: '',
     title: 'Assumptions',
     items: analysis.assumptions,
     makeCard: makeFindingCard,
@@ -183,7 +175,7 @@ export function renderXRay(analysis, container) {
   // ── Row 2: Missing Info + Trade-offs ──
   grid.appendChild(makeXRayPanel({
     panelClass: 'xray-panel--missing',
-    icon: '□',
+    icon: '',
     title: 'Missing Information',
     items: analysis.missing_information,
     makeCard: makeFindingCard,
@@ -193,7 +185,7 @@ export function renderXRay(analysis, container) {
 
   grid.appendChild(makeXRayPanel({
     panelClass: 'xray-panel--tradeoff',
-    icon: '⇌',
+    icon: '',
     title: 'Trade-offs',
     items: analysis.tradeoffs,
     makeCard: makeFindingCard,
@@ -205,7 +197,7 @@ export function renderXRay(analysis, container) {
   const hasContradictions = analysis.contradictions.length > 0;
   const contradictionPanel = makeXRayPanel({
     panelClass: `xray-panel--contradiction${hasContradictions ? '' : ''}`,
-    icon: '⚡',
+    icon: '',
     title: 'Contradictions',
     items: analysis.contradictions,
     makeCard: makeFindingCard,
@@ -216,7 +208,7 @@ export function renderXRay(analysis, container) {
   // ── Patterns ──
   const patternPanel = makeXRayPanel({
     panelClass: 'xray-panel--pattern',
-    icon: '≋',
+    icon: '',
     title: 'Possible Reasoning Patterns',
     items: analysis.possible_reasoning_patterns,
     makeCard: makePatternCard,

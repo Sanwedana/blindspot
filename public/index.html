@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -56,7 +56,6 @@
             class="hero__eyebrow"
             aria-label="AI-powered reasoning analysis tool"
           >
-            <span aria-hidden="true">◎</span>
             Reasoning Analysis
           </div>
 
@@ -78,7 +77,7 @@
               type="button"
               aria-label="Start analysing a decision"
             >
-              Analyse a decision →
+              Analyse a decision
             </button>
             <button
               id="btn-try-example"
@@ -96,19 +95,14 @@
           <!-- How it works — visual flow -->
           <div class="hero-flow" role="list" aria-label="How Blindspot works">
             <div class="hero-flow__step" role="listitem">
-              <span class="hero-flow__icon" aria-hidden="true">✍</span>
               <span class="hero-flow__label">You share</span>
               <span class="hero-flow__value">Your decision & reasoning</span>
             </div>
-            <span class="hero-flow__arrow" aria-hidden="true">→</span>
             <div class="hero-flow__step" role="listitem">
-              <span class="hero-flow__icon" aria-hidden="true">◎</span>
               <span class="hero-flow__label">AI analyses</span>
               <span class="hero-flow__value">Blind spots & assumptions</span>
             </div>
-            <span class="hero-flow__arrow" aria-hidden="true">→</span>
             <div class="hero-flow__step" role="listitem">
-              <span class="hero-flow__icon" aria-hidden="true">↗</span>
               <span class="hero-flow__label">You see</span>
               <span class="hero-flow__value">What you may be missing</span>
             </div>
@@ -315,7 +309,7 @@
                   style="display: none"
                 ></span>
                 <span id="btn-submit-text" class="btn__text"
-                  >X-Ray My Reasoning</span
+                  >Review My Reasoning</span
                 >
               </button>
               <p class="hero__disclaimer">
@@ -338,7 +332,7 @@
             <div class="loading-overlay__spinner" aria-hidden="true"></div>
             <p class="loading-overlay__title">Analysing your reasoning…</p>
             <p class="loading-overlay__subtitle">
-              Looking for blind spots, assumptions, and what might be missing.
+              Reviewing your assumptions, blind spots, and missing context.
             </p>
           </div>
         </div>
@@ -356,19 +350,22 @@
           <div class="xray-header" id="xray-header">
             <div
               class="xray-badge"
-              aria-label="Reasoning X-Ray analysis result"
+              aria-label="Reasoning review result"
             >
-              <span aria-hidden="true">◎</span>
-              Reasoning X-Ray
+              Reasoning Review
             </div>
             <h2
               class="section-title"
               id="xray-heading"
               tabindex="-1"
-              aria-label="Reasoning X-Ray — analysis results below"
+              aria-label="Reasoning review — analysis results below"
             >
               Here's what your reasoning may be missing
             </h2>
+            <p class="xray-explainer">
+              A structured second look at the thinking behind your decision —
+              not a recommendation about what you should choose.
+            </p>
             <p
               class="section-subtitle"
               id="xray-decision-summary"

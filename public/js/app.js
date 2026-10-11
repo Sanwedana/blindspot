@@ -76,7 +76,7 @@ function setLoading(isLoading) {
   btnSubmit.disabled = isLoading;
   btnSubmit.setAttribute("aria-busy", String(isLoading));
   btnSubmitSpinner.style.display = isLoading ? "block" : "none";
-  btnSubmitText.textContent = isLoading ? "Analysing…" : "X-Ray My Reasoning";
+  btnSubmitText.textContent = isLoading ? "Reviewing…" : "Review My Reasoning";
   loadingOverlay.classList.toggle("is-visible", isLoading);
   loadingOverlay.setAttribute("aria-hidden", String(!isLoading));
 }
@@ -164,7 +164,7 @@ async function handleSubmit(e) {
 }
 
 function renderResults(analysis) {
-  // Render X-Ray
+  // Render reasoning review
   renderXRay(analysis, xrayContainer);
   xraySection.classList.add("is-visible");
 
@@ -172,7 +172,7 @@ function renderResults(analysis) {
   renderReflection(analysis, reflectionContainer);
   reflectionSection.classList.add("is-visible");
 
-  // Scroll to X-Ray, then focus heading
+  // Scroll to the review, then focus heading
   xraySection.scrollIntoView({ behavior: "smooth", block: "start" });
   setTimeout(() => {
     const xrayHeading = document.getElementById("xray-heading");
