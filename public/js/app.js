@@ -95,6 +95,7 @@ function hideErrorBanner() {
 function setLoading(isLoading) {
   btnSubmit.disabled = isLoading;
   btnSubmit.setAttribute("aria-busy", String(isLoading));
+  btnSubmit.classList.toggle("is-loading", isLoading);
   btnSubmitSpinner.style.display = isLoading ? "block" : "none";
   btnSubmitText.textContent = isLoading ? "Reviewing…" : "Review My Reasoning";
   loadingOverlay.classList.toggle("is-visible", isLoading);
@@ -191,6 +192,12 @@ function renderResults(analysis) {
   // Render Reflection
   renderReflection(analysis, reflectionContainer);
   reflectionSection.classList.add("is-visible");
+
+  if (analysis.__demo) {
+    showErrorBanner(
+      "Demo analysis shown because the external AI service is unavailable. Add working provider keys to use live analysis.",
+    );
+  }
 
   // Scroll to the review, then focus heading
   xraySection.scrollIntoView({ behavior: "smooth", block: "start" });

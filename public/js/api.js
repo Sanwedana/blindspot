@@ -6,7 +6,7 @@
 const ANALYZE_URL = "/analyze";
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 1200;
-const REQUEST_TIMEOUT_MS = 45_000;
+const REQUEST_TIMEOUT_MS = 35_000;
 
 /**
  * @param {number} ms
@@ -62,6 +62,10 @@ export async function analyzeReasoning(input) {
 
       if (!data.analysis) {
         throw new Error("Unexpected response format from analysis service.");
+      }
+
+      if (data.demo) {
+        data.analysis.__demo = true;
       }
 
       return data.analysis;

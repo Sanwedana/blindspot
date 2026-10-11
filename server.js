@@ -8,6 +8,7 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3001;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY?.trim();
 const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY?.trim();
+const DEMO_MODE = process.env.DEMO_MODE === "true";
 const MAX_INPUT_LENGTH = 2000;
 const MAX_CONCURRENT_ANALYSES = 4;
 let activeAnalyses = 0;
@@ -118,6 +119,55 @@ function buildUserPrompt({ decision, reasoning, basis, uncertainty }) {
   return prompt;
 }
 
+function buildDemoAnalysis({ decision, basis, uncertainty }) {
+  const context = basis || uncertainty
+    ? "The available context leaves a few details open."
+    : "The reasoning is based mainly on the information currently in view.";
+
+  return {
+    decision_summary: decision,
+    blind_spots: [{
+      title: "Evidence may be narrower than the decision",
+      explanation: `Your reasoning highlights what supports the current direction, but it may not yet test the strongest counterargument. ${context}`,
+      why_it_matters: "A decision can feel settled when only one side has been examined closely.",
+      question_to_explore: "What evidence would make the alternative feel more credible?",
+    }],
+    assumptions: [{
+      title: "Important conditions may be treated as stable",
+      explanation: "The reasoning appears to depend on conditions remaining similar after the decision is made.",
+      why_it_matters: "If those conditions change, the trade-off could look different.",
+      question_to_explore: "Which assumption is most important to verify first?",
+    }],
+    missing_information: [{
+      title: "A practical constraint may need checking",
+      explanation: "The analysis does not yet establish the day-to-day constraints, costs, or timeline involved.",
+      why_it_matters: "Small practical details can have a larger effect than the headline benefit.",
+      question_to_explore: "What concrete detail would reduce the most uncertainty?",
+    }],
+    tradeoffs: [{
+      title: "Short-term clarity versus longer-term flexibility",
+      explanation: "The attractive option may solve an immediate need while creating a future commitment.",
+      why_it_matters: "Making that trade-off explicit can reveal what you value most.",
+      question_to_explore: "How reversible is each option if your priorities change?",
+    }],
+    contradictions: [],
+    possible_reasoning_patterns: [],
+    questions_to_explore: [
+      "What would you want to know before treating this as a confident decision?",
+      "Which part of your reasoning is based on direct evidence rather than expectation?",
+    ],
+    evidence_to_seek: [{
+      title: "Independent comparison",
+      description: "Find one source that evaluates the alternative using the same criteria.",
+    }],
+    what_could_change_my_mind: [{
+      belief: "The current option best fits the situation.",
+      assumption_supporting_it: "Its most important benefits will hold in practice.",
+      evidence_that_could_shift_it: "Reliable evidence that the key benefit is smaller, riskier, or less durable than expected.",
+    }],
+  };
+}
+
 function parseJsonResponse(text, providerName) {
   if (typeof text !== "string") {
     throw new Error(`${providerName} returned invalid JSON.`);
@@ -186,7 +236,7 @@ async function callNvidiaFallback(userPrompt) {
   if (!nvidiaKey) throw new Error("NVIDIA_API_KEY is not configured.");
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30_000);
+  const timeout = setTimeout(() => controller.abort(), 15_000);
   let response;
   try {
     response = await fetch(
@@ -269,6 +319,11 @@ app.post("/analyze", async (req, res) => {
       .json({ error: "Analysis service is not configured." });
   }
 
+  if (DEMO_MODE) {
+    console.warn("[/analyze] DEMO_MODE enabled; returning local demo analysis.");
+    return res.json({ analysis: buildDemoAnalysis(clean), demo: true });
+  }
+
   let primaryError = null;
   if (GEMINI_API_KEY) {
     try {
@@ -283,7 +338,7 @@ app.post("/analyze", async (req, res) => {
       });
 
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 30_000);
+      const timeout = setTimeout(() => controller.abort(), 15_000);
       try {
         const result = await model.generateContent(userPrompt, {
           signal: controller.signal,
