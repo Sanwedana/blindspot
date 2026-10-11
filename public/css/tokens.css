@@ -28,15 +28,15 @@
   /* ── Color Palette ───────────────────────────── */
   /* Base */
   --color-white:    #FFFFFF;
-  --color-bg:       #F8F7F4;     /* warm off-white */
+  --color-bg:       #F6F7FB;     /* cool, quiet canvas */
   --color-surface:  #FFFFFF;
-  --color-border:   #E8E5DF;
-  --color-border-strong: #D0CCC4;
+  --color-border:   #E6E8F0;
+  --color-border-strong: #C9CDDB;
 
   /* Text */
-  --color-text-primary:   #1A1916;
-  --color-text-secondary: #5C5850;
-  --color-text-muted:     #9C9890;
+  --color-text-primary:   #161827;
+  --color-text-secondary: #5F6375;
+  --color-text-muted:     #8C91A3;
   --color-text-inverted:  #FFFFFF;
 
   /* Accent — singular: warm indigo */
@@ -89,10 +89,10 @@
   --border-width: 1px;
 
   /* ── Shadows ─────────────────────────────────── */
-  --shadow-xs:  0 1px 2px rgba(0,0,0,0.06);
-  --shadow-sm:  0 1px 4px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg:  0 8px 24px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.04);
+  --shadow-xs:  0 1px 2px rgba(26, 31, 61, 0.05);
+  --shadow-sm:  0 4px 12px rgba(26, 31, 61, 0.06), 0 1px 3px rgba(26, 31, 61, 0.04);
+  --shadow-md:  0 10px 24px rgba(26, 31, 61, 0.10), 0 2px 5px rgba(26, 31, 61, 0.05);
+  --shadow-lg:  0 18px 42px rgba(26, 31, 61, 0.13), 0 4px 10px rgba(26, 31, 61, 0.05);
   --shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.25);
 
   /* ── Transitions ─────────────────────────────── */
