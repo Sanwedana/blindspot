@@ -73,6 +73,7 @@ export function validateAnalysis(raw) {
 
   const result = {
     decision_summary: String(raw.decision_summary || "").trim(),
+    demo: raw.__demo === true,
 
     blind_spots: [],
     assumptions: [],

@@ -101,6 +101,13 @@ body {
   isolation: isolate;
   background-image: radial-gradient(rgba(63, 111, 107, 0.1) 1px, transparent 1px);
   background-size: 24px 24px;
+  transition: background-color var(--transition-slow);
+  background-color: var(--color-bg);
+}
+
+.hero:hover,
+.hero.is-pointer-active {
+  background-color: rgba(255, 231, 218, 0.5);
 }
 
 .hero::before {
@@ -143,8 +150,8 @@ body {
 }
 
 .hero__spotlight {
-  z-index: -1;
-  background: radial-gradient(circle 230px at var(--mx, 50%) var(--my, 38%), rgba(63, 111, 107, 0.16), transparent 72%);
+  z-index: 0;
+  background: radial-gradient(circle 260px at var(--mx, 50%) var(--my, 38%), rgba(217, 98, 43, 0.2), transparent 72%);
   opacity: 0;
   transition: opacity var(--transition-base);
 }
@@ -155,34 +162,28 @@ body {
 }
 
 .hero__notes {
-  z-index: 0;
-  -webkit-mask-image: radial-gradient(circle 180px at var(--mx, 50%) var(--my, 38%), #000, transparent 100%);
-  mask-image: radial-gradient(circle 180px at var(--mx, 50%) var(--my, 38%), #000, transparent 100%);
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.hero:hover .hero__notes,
-.hero.is-pointer-active .hero__notes {
-  opacity: 1;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-width: 680px;
+  margin: var(--space-10) auto 0;
 }
 
 .hero__note {
-  position: absolute;
-  max-width: 190px;
+  display: inline-flex;
+  align-items: center;
   padding: var(--space-2) var(--space-3);
-  border-left: 2px solid var(--color-warm);
+  border: 1px solid rgba(217, 98, 43, 0.3);
+  border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.75);
   color: var(--color-warm-dark);
   font-size: var(--text-xs);
-  text-align: left;
   line-height: var(--leading-snug);
+  box-shadow: var(--shadow-xs);
 }
-
-.hero__note--one { left: 7%; top: 25%; }
-.hero__note--two { right: 7%; top: 22%; }
-.hero__note--three { right: 10%; top: 55%; }
-.hero__note--four { left: 8%; top: 66%; }
 
 .hero__eyebrow {
   display: inline-flex;
@@ -283,7 +284,7 @@ body {
 
 .hero-preview {
   width: min(100%, 620px);
-  margin: var(--space-16) auto 0;
+  margin: var(--space-5) auto 0;
   text-align: left;
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--color-border);
@@ -528,7 +529,7 @@ body {
     display: none;
   }
   .hero__notes {
-    opacity: 0.35;
+    margin-top: var(--space-8);
   }
   .hero-preview {
     transform: none;

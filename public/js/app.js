@@ -193,7 +193,7 @@ function renderResults(analysis) {
   renderReflection(analysis, reflectionContainer);
   reflectionSection.classList.add("is-visible");
 
-  if (analysis.__demo) {
+  if (analysis.demo) {
     showErrorBanner(
       "Demo analysis shown because the external AI service is unavailable. Add working provider keys to use live analysis.",
     );
