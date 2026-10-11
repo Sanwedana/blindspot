@@ -54,12 +54,16 @@ function setupHeroSpotlight() {
     const bounds = hero.getBoundingClientRect();
     hero.style.setProperty("--mx", `${event.clientX - bounds.left}px`);
     hero.style.setProperty("--my", `${event.clientY - bounds.top}px`);
+    hero.classList.add("is-pointer-active");
   };
 
   const bounds = hero.getBoundingClientRect();
   hero.style.setProperty("--mx", `${bounds.width / 2}px`);
   hero.style.setProperty("--my", `${bounds.height * 0.38}px`);
   hero.addEventListener("pointermove", updatePosition);
+  hero.addEventListener("pointerleave", () => {
+    hero.classList.remove("is-pointer-active");
+  });
 }
 
 // ─── Utility ──────────────────────────────────────────────────────────────────

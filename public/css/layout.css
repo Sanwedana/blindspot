@@ -145,12 +145,26 @@ body {
 .hero__spotlight {
   z-index: -1;
   background: radial-gradient(circle 230px at var(--mx, 50%) var(--my, 38%), rgba(63, 111, 107, 0.16), transparent 72%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.hero:hover .hero__spotlight,
+.hero.is-pointer-active .hero__spotlight {
+  opacity: 1;
 }
 
 .hero__notes {
   z-index: 0;
   -webkit-mask-image: radial-gradient(circle 180px at var(--mx, 50%) var(--my, 38%), #000, transparent 100%);
   mask-image: radial-gradient(circle 180px at var(--mx, 50%) var(--my, 38%), #000, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.hero:hover .hero__notes,
+.hero.is-pointer-active .hero__notes {
+  opacity: 1;
 }
 
 .hero__note {
@@ -205,6 +219,7 @@ body {
   position: relative;
   display: inline-block;
   font-style: italic;
+  animation: missing-breathe 2.8s ease-in-out infinite;
 }
 
 .hero__underline {
@@ -228,6 +243,15 @@ body {
 
 @keyframes hero-underline-draw {
   to { stroke-dashoffset: 0; }
+}
+
+@keyframes missing-breathe {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(217, 98, 43, 0);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(217, 98, 43, 0.22);
+  }
 }
 
 .hero__subheadline {
@@ -515,7 +539,8 @@ body {
 
   @media (prefers-reduced-motion: reduce) {
     .hero__underline path,
-    .hero-preview {
+    .hero-preview,
+    .hero__missing {
       animation: none;
       stroke-dashoffset: 0;
     }
