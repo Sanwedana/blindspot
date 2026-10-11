@@ -28,36 +28,36 @@
   /* ── Color Palette ───────────────────────────── */
   /* Base */
   --color-white:    #FFFFFF;
-  --color-bg:       #F6F7FB;     /* cool, quiet canvas */
+  --color-bg:       #FBF7F2;     /* warm paper */
   --color-surface:  #FFFFFF;
-  --color-border:   #E6E8F0;
-  --color-border-strong: #C9CDDB;
+  --color-border:   #EADFD7;
+  --color-border-strong: #D7C4B8;
 
   /* Text */
-  --color-text-primary:   #161827;
-  --color-text-secondary: #5F6375;
-  --color-text-muted:     #8C91A3;
+  --color-text-primary:   #2B2421;
+  --color-text-secondary: #6D625C;
+  --color-text-muted:     #9E9189;
   --color-text-inverted:  #FFFFFF;
 
-  /* Accent — singular: warm indigo */
-  --color-accent:         #4F46E5;  /* indigo-600 */
-  --color-accent-hover:   #4338CA;  /* indigo-700 */
-  --color-accent-light:   #EEF2FF;  /* indigo-50 */
-  --color-accent-subtle:  #E0E7FF;  /* indigo-100 */
+  /* Accent — singular: warm terracotta */
+  --color-accent:         #C45D3A;
+  --color-accent-hover:   #A9472B;
+  --color-accent-light:   #FFF1EA;
+  --color-accent-subtle:  #F4C7B5;
 
   /* Category colors — muted, not garish */
   --color-blind-spot:     #D97706;  /* amber */
   --color-blind-spot-bg:  #FFFBEB;
-  --color-assumption:     #6366F1;  /* indigo */
-  --color-assumption-bg:  #EEF2FF;
+  --color-assumption:     #A45A3A;
+  --color-assumption-bg:  #FFF3EC;
   --color-missing:        #0D9488;  /* teal */
   --color-missing-bg:     #F0FDFA;
   --color-tradeoff:       #DC2626;  /* red */
   --color-tradeoff-bg:    #FFF1F2;
   --color-contradiction:  #EA580C;  /* orange */
   --color-contradiction-bg: #FFF7ED;
-  --color-pattern:        #64748B;  /* slate */
-  --color-pattern-bg:     #F8FAFC;
+  --color-pattern:        #76665D;  /* warm slate */
+  --color-pattern-bg:     #F8F3EE;
 
   /* Status */
   --color-error:          #DC2626;
@@ -89,11 +89,11 @@
   --border-width: 1px;
 
   /* ── Shadows ─────────────────────────────────── */
-  --shadow-xs:  0 1px 2px rgba(26, 31, 61, 0.05);
-  --shadow-sm:  0 4px 12px rgba(26, 31, 61, 0.06), 0 1px 3px rgba(26, 31, 61, 0.04);
-  --shadow-md:  0 10px 24px rgba(26, 31, 61, 0.10), 0 2px 5px rgba(26, 31, 61, 0.05);
-  --shadow-lg:  0 18px 42px rgba(26, 31, 61, 0.13), 0 4px 10px rgba(26, 31, 61, 0.05);
-  --shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.25);
+  --shadow-xs:  0 1px 2px rgba(71, 43, 30, 0.06);
+  --shadow-sm:  0 4px 12px rgba(71, 43, 30, 0.07), 0 1px 3px rgba(71, 43, 30, 0.04);
+  --shadow-md:  0 10px 24px rgba(71, 43, 30, 0.11), 0 2px 5px rgba(71, 43, 30, 0.05);
+  --shadow-lg:  0 18px 42px rgba(71, 43, 30, 0.14), 0 4px 10px rgba(71, 43, 30, 0.05);
+  --shadow-focus: 0 0 0 3px rgba(196, 93, 58, 0.24);
 
   /* ── Transitions ─────────────────────────────── */
   --transition-fast:   120ms ease;

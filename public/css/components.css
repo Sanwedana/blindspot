@@ -40,7 +40,7 @@
 .btn--primary {
   background-color: var(--color-accent);
   color: var(--color-text-inverted);
-  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 8px 18px rgba(196, 93, 58, 0.22);
 }
 
 .btn--primary:hover:not(:disabled) {
@@ -107,7 +107,7 @@
   inset: 0 0 auto;
   height: 4px;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  background: linear-gradient(90deg, var(--color-accent), #818CF8, #2DD4BF);
+  background: linear-gradient(90deg, var(--color-accent), #E08B5B, #E8B66D);
 }
 
 .field {
