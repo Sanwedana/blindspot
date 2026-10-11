@@ -52,6 +52,13 @@
     <main id="main-content">
       <section class="section hero" aria-labelledby="hero-heading">
         <div class="container">
+          <div class="hero__spotlight" aria-hidden="true"></div>
+          <div class="hero__notes" aria-hidden="true">
+            <span class="hero__note hero__note--one">Assumption?</span>
+            <span class="hero__note hero__note--two">Unconsidered cost</span>
+            <span class="hero__note hero__note--three">Bias: sunk cost</span>
+            <span class="hero__note hero__note--four">Is there a third option?</span>
+          </div>
           <div
             class="hero__eyebrow"
             aria-label="AI-powered reasoning analysis tool"
@@ -61,7 +68,13 @@
 
           <h1 class="hero__headline" id="hero-heading">
             Before you decide,<br />
-            see what you're <em>missing</em>.
+            see what you're
+            <em class="hero__missing"
+              >missing
+              <svg class="hero__underline" viewBox="0 0 400 14" aria-hidden="true">
+                <path d="M2 9 C 60 2, 140 13, 230 6 S 340 9, 398 4" pathLength="1" />
+              </svg>
+            </em>.
           </h1>
 
           <p class="hero__subheadline">
@@ -91,6 +104,29 @@
               The AI will never tell you what to decide.
             </p>
           </div>
+
+          <div class="hero-preview" aria-label="Example reasoning review preview">
+            <div class="hero-preview__topbar">
+              <span class="hero-preview__status"></span>
+              <span>Reasoning review</span>
+              <span class="hero-preview__dots">•••</span>
+            </div>
+            <div class="hero-preview__body">
+              <p class="hero-preview__label">Your decision</p>
+              <p class="hero-preview__decision">Should I accept the startup internship?</p>
+              <div class="hero-preview__divider"></div>
+              <p class="hero-preview__label">What might be missing</p>
+              <div class="hero-preview__chips">
+                <span>Unclear work hours</span>
+                <span>Long-term mentorship</span>
+                <span>Evidence beyond reputation</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="hero__credibility">
+            Built for students, founders, and teams who want to think clearly.
+          </p>
 
           <!-- How it works — visual flow -->
           <div class="hero-flow" role="list" aria-label="How Blindspot works">

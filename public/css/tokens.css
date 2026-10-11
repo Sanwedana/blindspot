@@ -28,7 +28,7 @@
   /* ── Color Palette ───────────────────────────── */
   /* Base */
   --color-white:    #FFFFFF;
-  --color-bg:       #FBF7F2;     /* warm paper */
+  --color-bg:       #F6F3EE;     /* warm paper */
   --color-surface:  #FFFFFF;
   --color-border:   #EADFD7;
   --color-border-strong: #D7C4B8;
@@ -40,10 +40,12 @@
   --color-text-inverted:  #FFFFFF;
 
   /* Accent — singular: warm terracotta */
-  --color-accent:         #C45D3A;
-  --color-accent-hover:   #A9472B;
-  --color-accent-light:   #FFF1EA;
-  --color-accent-subtle:  #F4C7B5;
+  --color-accent:         #3F6F6B;
+  --color-accent-hover:   #2C4F4C;
+  --color-accent-light:   #E4ECEA;
+  --color-accent-subtle:  #C4D8D4;
+  --color-warm:           #D9622B;
+  --color-warm-dark:      #A8441A;
 
   /* Category colors — muted, not garish */
   --color-blind-spot:     #D97706;  /* amber */
@@ -93,7 +95,7 @@
   --shadow-sm:  0 4px 12px rgba(71, 43, 30, 0.07), 0 1px 3px rgba(71, 43, 30, 0.04);
   --shadow-md:  0 10px 24px rgba(71, 43, 30, 0.11), 0 2px 5px rgba(71, 43, 30, 0.05);
   --shadow-lg:  0 18px 42px rgba(71, 43, 30, 0.14), 0 4px 10px rgba(71, 43, 30, 0.05);
-  --shadow-focus: 0 0 0 3px rgba(196, 93, 58, 0.24);
+  --shadow-focus: 0 0 0 3px rgba(63, 111, 107, 0.24);
 
   /* ── Transitions ─────────────────────────────── */
   --transition-fast:   120ms ease;

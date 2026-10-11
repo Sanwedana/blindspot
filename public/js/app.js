@@ -34,6 +34,7 @@ const reflectionContainer = document.getElementById("reflection-container");
 const btnAnalyzeHero = document.getElementById("btn-analyze-hero");
 const btnTryExample = document.getElementById("btn-try-example");
 const btnAnalyzeAgain = document.getElementById("btn-analyze-again");
+const hero = document.querySelector(".hero");
 
 // ─── Example decision (for demo / judge presentation) ─────────────────────────
 const EXAMPLE = {
@@ -45,6 +46,21 @@ const EXAMPLE = {
   uncertainty:
     "Whether my college schedule next semester will conflict with the working hours.",
 };
+
+function setupHeroSpotlight() {
+  if (!hero || window.matchMedia("(hover: none)").matches) return;
+
+  const updatePosition = (event) => {
+    const bounds = hero.getBoundingClientRect();
+    hero.style.setProperty("--mx", `${event.clientX - bounds.left}px`);
+    hero.style.setProperty("--my", `${event.clientY - bounds.top}px`);
+  };
+
+  const bounds = hero.getBoundingClientRect();
+  hero.style.setProperty("--mx", `${bounds.width / 2}px`);
+  hero.style.setProperty("--my", `${bounds.height * 0.38}px`);
+  hero.addEventListener("pointermove", updatePosition);
+}
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
 
@@ -239,3 +255,4 @@ setupCounter(fieldDecision, "counter-decision");
 setupCounter(fieldReasoning, "counter-reasoning");
 setupCounter(fieldBasis, "counter-basis");
 setupCounter(fieldUncertainty, "counter-uncertainty");
+setupHeroSpotlight();
